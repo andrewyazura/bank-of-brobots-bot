@@ -16,7 +16,7 @@ Telegram bot for Bank of #brobots. Send and receive your **brocoins** easily!
 
 We use:
 
-- `pyTelegramBotAPI`
+- `aiogram`
 - `requests`
 - _GraphQL_ as data query language
 
