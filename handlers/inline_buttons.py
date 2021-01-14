@@ -67,10 +67,7 @@ async def on_callback_query(query: types.CallbackQuery):
                                      telegram_id=u_id)
 
         if to_user_id.get('errors', None):
-            await bot.edit_message_text(
-                localization['register_first'],
-                inline_message_id=query.inline_message_id
-            )
+            await bot.answer_callback_query(query.id, localization['register_first'])
             return
 
         to_user_id = to_user_id['data']['telegramToUserId']
@@ -109,10 +106,7 @@ async def on_callback_query(query: types.CallbackQuery):
                                        telegram_id=u_id)
 
         if from_user_id.get('errors', None):
-            await bot.edit_message_text(
-                localization['register_first'],
-                inline_message_id=query.inline_message_id
-            )
+            await bot.answer_callback_query(query.id, localization['register_first'])
             return
 
         from_user_id = from_user_id['data']['telegramToUserId']
