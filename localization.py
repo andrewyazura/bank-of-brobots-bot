@@ -29,7 +29,7 @@ localization = {
         'register_success': 'Successfully registered ✅',
         'register_failure': 'Something went wrong 🙁',
         'register_cancel': 'Registration successfully cancelled',
-        'register_first': 'You need to register to use this! ❌',
+        'register_first': 'You need to register to use this! ❌\n Use /start command to register',
 
         'transaction_success': u'Transaction finished successfully! 😃\n'
                                u'Brocoins sent: <i>{} bc</i>\n',
