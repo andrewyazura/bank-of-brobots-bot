@@ -8,7 +8,7 @@ localization = {
                 u'/profile - <i>your profile</i>\n'
                 u'/stats - <i>see your stats</i>\n'
                 u'/transactions - <i>list of transactions</i>\n'
-                u'\nTo transfer money type @brobank_bot in chat with your friend and follow instructions there',
+                u'\nTo transfer brocoins type @brobank_bot in chat with your friend and follow instructions there',
 
         'what_is_new': u'<b>What\'s <i>new</i>?</b>\n'
                        u'- Weekly limit is cancelled! 🎉\n'
@@ -32,7 +32,7 @@ localization = {
         'register_first': 'You need to register to use this! ❌',
 
         'transaction_success': u'Transaction finished successfully! 😃\n'
-                               u'Money sent: <i>{} bc</i>\n',
+                               u'Brocoins sent: <i>{} bc</i>\n',
         'transaction_failure': 'Something went wrong 🙁',
         'transaction_cancel': 'Cancelled ❌',
 
@@ -45,7 +45,7 @@ localization = {
 
         'profile': u'<b>Profile</b>\n'
                     u'Name: <i>{name}</i>\n'
-                    u'Money: <i>{money} bc</i>\n'
+                    u'Balance: <i>{money} bc</i>\n'
                     u'Total transactions: <i>{transactions}</i>\n',
         'profile_admin': 'Admin: <i>{}</i>\n',
 
