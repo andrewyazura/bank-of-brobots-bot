@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements.in
 #
-aiogram==2.11.2
+aiogram==2.12
     # via -r requirements.in
 aiohttp==3.7.4
     # via aiogram
