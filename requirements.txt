@@ -38,7 +38,7 @@ requests==2.25.1
     # via -r requirements.in
 typing-extensions==3.7.4.3
     # via aiohttp
-urllib3==1.26.2
+urllib3==1.26.3
     # via requests
 yarl==1.6.3
     # via aiohttp
