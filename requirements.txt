@@ -30,7 +30,7 @@ multidict==5.1.0
     # via
     #   aiohttp
     #   yarl
-python-dotenv==0.17.0
+python-dotenv==0.17.1
     # via -r requirements.in
 pytz==2020.5
     # via babel
