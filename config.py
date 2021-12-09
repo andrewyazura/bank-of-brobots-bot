@@ -6,11 +6,12 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, ".env"))
 
 
+def get_env_group(prefix):
+    return {k[len(prefix) :]: v for k, v in os.environ.items() if k.startswith(prefix)}
+
+
 class Config(object):
     SECRET_KEY = os.environ.get("SECRET_KEY")
-    TELEGRAM_BOT = dict(
-        TOKEN=os.environ.get("TELEGRAM_BOT_TOKEN"),
-        DOMAIN=os.environ.get("TELEGRAM_BOT_DOMAIN"),
-        CERTIFICATE=os.environ.get("TELEGRAM_BOT_CERTIFICATE"),
-    )
     API_URL = os.environ.get("API_URL")
+
+    TELEGRAM_BOT = get_env_group("TELEGRAM_BOT_")
