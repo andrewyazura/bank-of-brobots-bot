@@ -1,8 +1,9 @@
 from functools import wraps
 
 from flask import request
-from telegram import Bot, Update
-from telegram.ext import Dispatcher
+from telegram import Update
+from telegram.ext import ExtBot, Dispatcher
+from telegram.utils.request import Request
 
 
 class TelegramBot(object):
@@ -14,9 +15,12 @@ class TelegramBot(object):
     def init_app(self, app):
         bot_config = app.config.get("TELEGRAM_BOT")
         token = bot_config.get("TOKEN")
+        con_pool_size = int(bot_config.get("CON_POOL_SIZE"))
+        workers = int(bot_config.get("WORKERS")) if app.debug else 0
 
-        self.bot = Bot(token)
-        self.dispatcher = Dispatcher(self.bot, None, workers=0)
+        request = Request(con_pool_size=con_pool_size)
+        self.bot = ExtBot(token, request=request)
+        self.dispatcher = Dispatcher(self.bot, None, workers=workers)
 
         if not app.debug:
             self.set_webhook(app)

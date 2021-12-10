@@ -22,4 +22,4 @@ def create_app(config_class=Config):
             routes_bp, url_prefix=f"/{app.config.get('TELEGRAM_BOT', {}).get('TOKEN')}"
         )
 
-        return app
+    return app
