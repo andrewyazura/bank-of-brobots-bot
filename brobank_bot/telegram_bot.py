@@ -1,8 +1,9 @@
 from functools import wraps
+from queue import Queue
 
 from flask import request
 from telegram import Update
-from telegram.ext import ExtBot, Dispatcher
+from telegram.ext import Dispatcher, ExtBot, JobQueue
 from telegram.utils.request import Request
 
 
@@ -14,17 +15,26 @@ class TelegramBot(object):
 
     def init_app(self, app):
         bot_config = app.config.get("TELEGRAM_BOT")
+
         token = bot_config.get("TOKEN")
-        con_pool_size = int(bot_config.get("CON_POOL_SIZE"))
         workers = int(bot_config.get("WORKERS")) if app.debug else 0
+        con_pool_size = workers + 4
+        update_queue = Queue() if app.debug else None
+        job_queue = JobQueue() if app.debug else None
 
         request = Request(con_pool_size=con_pool_size)
         self.bot = ExtBot(token, request=request)
-        self.dispatcher = Dispatcher(self.bot, None, workers=workers)
+        self.dispatcher = Dispatcher(
+            bot=self.bot,
+            workers=workers,
+            update_queue=update_queue,
+            job_queue=job_queue,
+        )
 
         if not app.debug:
             self.set_webhook(app)
 
+        self.app = app
         app.telegram_bot = self.bot
         app.dispatcher = self.dispatcher
 
