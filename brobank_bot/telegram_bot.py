@@ -31,21 +31,9 @@ class TelegramBot(object):
             job_queue=job_queue,
         )
 
-        if not app.debug:
-            self.set_webhook(app)
-
         self.app = app
         app.telegram_bot = self.bot
         app.dispatcher = self.dispatcher
-
-    def set_webhook(self, app):
-        bot_config = app.config.get("TELEGRAM_BOT")
-        domain = bot_config.get("DOMAIN")
-        token = bot_config.get("TOKEN")
-        cert_path = bot_config.get("CERTIFICATE")
-
-        url = f"{domain}/{token}/webhook"
-        self.bot.set_webhook(url=url, certificate=open(cert_path, "rb"))
 
     def parse_telegram_update(self, f):
         @wraps(f)
