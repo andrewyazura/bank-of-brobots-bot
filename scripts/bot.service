@@ -1,0 +1,11 @@
+[Unit]
+Description=Bank of brobots telegram bot
+After=network.target
+
+[Service]
+WorkingDirectory=%h/bank-of-brobots-bot
+ExecStart=%h/bank-of-brobots-bot/scripts/boot.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
