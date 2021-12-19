@@ -1,8 +1,10 @@
+#!/bin/bash
+
 cd ~/bank-of-brobots-bot
 
 git reset --hard
 git clean -f -d
-git pull
+git pull --rebase
 
 pipenv install --deploy
 
