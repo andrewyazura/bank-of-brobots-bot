@@ -1,3 +1,5 @@
+[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
+
 # Bank of #brobots Telegram bot
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/andrew4ever/bank-of-brobots-bot?style=flat&logo=github&labelColor=181717&color=F8F8F5)
