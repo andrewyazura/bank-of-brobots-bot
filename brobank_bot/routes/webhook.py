@@ -1,8 +1,11 @@
+from flask import Blueprint
+
 from brobank_bot import telegram_bot
-from brobank_bot.routes import routes_bp
+
+webhook_bp = Blueprint("webhook", __name__, url_prefix="/webhook")
 
 
-@routes_bp.route("/webhook", methods=["POST"])
+@webhook_bp.route("", methods=["POST"])
 @telegram_bot.parse_telegram_update
 def webhook(update):
     telegram_bot.dispatcher.process_update(update)

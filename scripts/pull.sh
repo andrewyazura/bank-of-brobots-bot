@@ -6,7 +6,7 @@ git reset --hard
 git clean -f -d
 git pull --rebase
 
-pipenv install --deploy
+pipenv sync
 
 cp scripts/bot.service ~/.config/systemd/user/bank-of-brobots-bot.service
 systemctl --user daemon-reload
