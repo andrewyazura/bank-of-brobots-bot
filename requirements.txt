@@ -40,7 +40,7 @@ python-dotenv==0.20.0
     # via -r requirements.in
 pytz==2020.5
     # via babel
-requests==2.27.1
+requests==2.28.0
     # via -r requirements.in
 typing-extensions==3.7.4.3
     # via async-timeout
